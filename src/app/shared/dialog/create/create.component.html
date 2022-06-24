@@ -56,7 +56,7 @@
           A passphrase is required.
         </mat-error>
         <mat-error *ngIf="createKeyForm.get('password')?.hasError('minlength')">
-          Passphrase must be 12 characters.
+          Passphrase must be {{PASSPHRASE_MIN_LENGTH}} characters.
         </mat-error>
       </mat-form-field>
     </div>

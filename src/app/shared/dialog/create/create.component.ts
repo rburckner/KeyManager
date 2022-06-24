@@ -11,6 +11,8 @@ import {ConfirmedValidator} from "../../validators";
   styleUrls: ['./create.component.scss']
 })
 export class CreateComponent implements OnInit {
+  PASSPHRASE_MIN_LENGTH = 8
+
   public createKeyForm!: FormGroup;
   public createKeyError = '';
 
@@ -31,7 +33,7 @@ export class CreateComponent implements OnInit {
         name: [''],
         email: ['', Validators.email],
         comment: [''],
-        password: ['', [Validators.required, Validators.minLength(12)]],
+        password: ['', [Validators.required, Validators.minLength(this.PASSPHRASE_MIN_LENGTH)]],
         confirm_password: ['', [Validators.required]],
       },
       {
