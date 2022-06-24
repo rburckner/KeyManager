@@ -10,7 +10,6 @@
           aria-label="Your name"
           formControlName="name"
           cdkFocusInitial
-          #name
         />
       </mat-form-field>
     </div>
@@ -22,7 +21,6 @@
           placeholder="E-mail"
           aria-label="E-mail"
           formControlName="email"
-          #email
         />
         <mat-error *ngIf="createKeyForm.get('email')?.hasError('email')">
           Email is invalid
@@ -37,7 +35,6 @@
           placeholder="Identity comment or notes"
           aria-label="comment"
           formControlName="comment"
-          #comment
         />
       </mat-form-field>
     </div>
@@ -50,7 +47,6 @@
           aria-label="Passphrase"
           type="password"
           formControlName="password"
-          #password
         />
         <mat-error *ngIf="createKeyForm.get('password')?.hasError('required')">
           A passphrase is required.
@@ -69,7 +65,6 @@
           aria-label="Confirm Passphrase"
           type="password"
           formControlName="confirm_password"
-          #confirm_password
         />
         <mat-error
           *ngIf="
