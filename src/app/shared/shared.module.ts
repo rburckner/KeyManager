@@ -4,17 +4,19 @@ import {ImportComponent} from './dialog/import/import.component';
 import {CreateComponent} from './dialog/create/create.component';
 import {AboutComponent} from './dialog/about/about.component';
 import {MaterialModule} from "../material.module";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {FlexLayoutModule} from "@angular/flex-layout";
 
 
 @NgModule({
   declarations: [ImportComponent, CreateComponent, AboutComponent],
   imports: [
     CommonModule,
+    FlexLayoutModule,
+    FormsModule,
     ReactiveFormsModule,
     MaterialModule
   ],
-  // exports: [ImportComponent, CreateComponent, AboutComponent]
 })
 export class SharedModule {
 }
