@@ -1,0 +1,104 @@
+<h1 mat-dialog-title>Create a Key</h1>
+<mat-card-content>
+  <form [formGroup]="createKeyForm" fxLayout="column">
+    <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+      <mat-icon>person</mat-icon>
+      <mat-form-field fxFlex>
+        <input
+          matInput
+          placeholder="Your name"
+          aria-label="Your name"
+          formControlName="name"
+          cdkFocusInitial
+          #name
+        />
+      </mat-form-field>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+      <mat-icon>email</mat-icon>
+      <mat-form-field fxFlex>
+        <input
+          matInput
+          placeholder="E-mail"
+          aria-label="E-mail"
+          formControlName="email"
+          #email
+        />
+        <mat-error *ngIf="createKeyForm.get('email')?.hasError('email')">
+          Email is invalid
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+      <mat-icon>comment</mat-icon>
+      <mat-form-field fxFlex>
+        <input
+          matInput
+          placeholder="Identity comment or notes"
+          aria-label="comment"
+          formControlName="comment"
+          #comment
+        />
+      </mat-form-field>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+      <mat-icon>password</mat-icon>
+      <mat-form-field fxFlex>
+        <input
+          matInput
+          placeholder="Passphrase"
+          aria-label="Passphrase"
+          type="password"
+          formControlName="password"
+          #password
+        />
+        <mat-error *ngIf="createKeyForm.get('password')?.hasError('required')">
+          A passphrase is required.
+        </mat-error>
+        <mat-error *ngIf="createKeyForm.get('password')?.hasError('minlength')">
+          Passphrase must be 12 characters.
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+      <mat-icon>password</mat-icon>
+      <mat-form-field fxFlex>
+        <input
+          matInput
+          placeholder="Confirm passphrase"
+          aria-label="Confirm Passphrase"
+          type="password"
+          formControlName="confirm_password"
+          #confirm_password
+        />
+        <mat-error
+          *ngIf="
+            createKeyForm
+              .get('confirm_password')
+              ?.hasError('confirmedValidator')
+          "
+        >
+          Passphrases do not match.
+        </mat-error>
+      </mat-form-field>
+    </div>
+  </form>
+</mat-card-content>
+<div mat-dialog-actions>
+  <div fxLayout="row" class="margin-top">
+    <div *ngIf="createKeyError" class="mat-caption error">
+      {{ createKeyError }}
+    </div>
+    <div class="flex-spacer"></div>
+  </div>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button
+    mat-button
+    type="submit"
+    color="primary"
+    [disabled]="createKeyForm.invalid"
+    (click)="onSubmit()"
+  >
+    Create
+  </button>
+</div>

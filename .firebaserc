@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "amarket-520c4": {
+      "hosting": {
+        "KeyManager": [
+          "amarket-520c4"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "amarket-520c4"
+  }
+}

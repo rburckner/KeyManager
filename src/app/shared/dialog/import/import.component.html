@@ -1,0 +1,11 @@
+<h2>Import keys(s)</h2>
+<mat-form-field>
+  <ngx-mat-file-input
+    [formControl]="fileControl"
+    [multiple]="true"
+    [accept]="'.asc'"
+    color="primary"
+  >
+  </ngx-mat-file-input>
+</mat-form-field>
+<button mat-button (click)="onNoClick()">Cancel</button>
